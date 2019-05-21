@@ -1,9 +1,12 @@
 package com.bonify.q5.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bonify.q5.model.BankIdentifierModel;
 import com.bonify.q5.service.BankIdentifierService;
 
 @RequestMapping("/api/")
@@ -27,4 +30,10 @@ public class BonifyController {
 	public String findBankNameViaIdentifier(String bankIdentifier) {
 		return bankIdentifierService.findBankNameViaIdentifier(bankIdentifier);
 	}
+	
+	@RequestMapping("getAll")
+	public List<BankIdentifierModel> readDBData() {
+		return bankIdentifierService.readDBData();
+	}
+	
 }

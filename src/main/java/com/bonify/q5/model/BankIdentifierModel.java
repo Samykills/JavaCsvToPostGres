@@ -33,6 +33,14 @@ public class BankIdentifierModel {
 		return bankName;
 	}
 
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	public void setBankName(String bankName) {
 		this.bankName = bankName;
 	}

@@ -2,6 +2,8 @@ package com.bonify.q5.service;
 
 import java.util.List;
 
+import com.bonify.q5.model.BankIdentifierModel;
+
 public interface BankIdentifierService {
 
 	/**
@@ -14,4 +16,6 @@ public interface BankIdentifierService {
 	 * @return
 	 */
 	String findBankNameViaIdentifier(String bankIdentifier);
+
+	List<BankIdentifierModel> readDBData();
 }

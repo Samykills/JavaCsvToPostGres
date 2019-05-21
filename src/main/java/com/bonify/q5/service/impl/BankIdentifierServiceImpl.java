@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.List;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
@@ -30,10 +31,11 @@ public class BankIdentifierServiceImpl implements BankIdentifierService {
 		// TODO Auto-generated method stub
 		CSVParser parser;
 		try {
-			BankIdentifierModel bim = new BankIdentifierModel();
+			
 			Reader reader = Files.newBufferedReader(Paths.get(fileName));
 			parser = new CSVParser(reader, CSVFormat.DEFAULT.withHeader());
 			for (CSVRecord record : parser) {
+				BankIdentifierModel bim = new BankIdentifierModel();
 				bim.setBankName(record.get("Name"));
 				bim.setBankIdentifier(record.get("bank_Identifier"));
 				System.out.printf("%s\t%s\n", record.get("Name"), record.get("bank_Identifier"));
@@ -52,6 +54,13 @@ public class BankIdentifierServiceImpl implements BankIdentifierService {
 	public String findBankNameViaIdentifier(String bankIdentifier) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public List<BankIdentifierModel> readDBData() {
+		// TODO Auto-generated method stub
+		List<BankIdentifierModel> bList = bankIdentifierDao.findAll();
+		return bList;
 	}
 
 }
